@@ -19,16 +19,16 @@ int main()
 {
     int result_m = 10;
     auto task_m = future::async(multiply, &result_m);
-    ++task_m; // ++task
-    cout << result_m << endl; //20
+    await task_m;
+    cout << result_m << endl; 
 
     auto task_sum = future::async(sum, 15, 20);
     auto task_print = future::async(print);
 
-    auto result_sum = ++task_sum;
-    cout << result_sum << endl; //35
+    auto result_sum = await task_sum;
+    cout << result_sum << endl; 
 
-    ++task_print;
+    await task_print;
 
     //Output:
     /*
